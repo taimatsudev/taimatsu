@@ -1,7 +1,7 @@
 import torch
 import torch.nn.functional as F
-from adaswarm.rempso import ParticleSwarmOptimizer
-from adaswarm.particle import AccelerationCoefficients
+from taimatsu.rempso import ParticleSwarmOptimizer
+from taimatsu.particle import AccelerationCoefficients
 
 
 def CrossEntropyLoss():

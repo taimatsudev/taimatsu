@@ -1,8 +1,8 @@
 import time
 from torch import cuda, Tensor, randint
 from torch.nn import CrossEntropyLoss
-from adaswarm.particle import ParticleSwarm
-from adaswarm.utils.options import get_device
+from taimatsu.particle import ParticleSwarm
+from taimatsu.utils.options import get_device
 
 
 class ParticleSwarmOptimizer:

@@ -7,7 +7,7 @@ import time
 import datetime
 import pandas as pd
 import numpy as np
-from adaswarm.utils.options import get_device
+from taimatsu.utils.options import get_device
 from platform import platform
 
 

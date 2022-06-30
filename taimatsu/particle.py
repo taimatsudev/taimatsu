@@ -9,8 +9,8 @@ equations, attempt to converge to an optima [Ebenhart and Shi, 1995].
 import numpy as np
 import torch
 
-from adaswarm.utils.matrix import get_phi_matrix, get_rotation_matrix
-from adaswarm.utils.options import dataset_name, get_device
+from taimatsu.utils.matrix import get_phi_matrix, get_rotation_matrix
+from taimatsu.utils.options import dataset_name, get_device
 
 
 class AccelerationCoefficients:
