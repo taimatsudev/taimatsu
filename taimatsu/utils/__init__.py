@@ -1,11 +1,13 @@
+"""Utilities to convert integer vector to categorical."""
+
 from taimatsu.utils.progressbar import *
 from taimatsu.utils.metrics import *
 
-
+# pylint: disable=C0301
 # Please refer to Keras: https://github.com/keras-team/keras/blob/14f71177ad28a60a4ea41775b2ac159d3688c792/keras/utils/np_utils.py#L22-L74
 
-
-def to_categorical(y, num_classes=None, dtype="float32"):
+#TODO: Have a separate dataloader module as this is duplicated in Adaswarm
+def to_categorical(y_class_values, num_classes=None, dtype="float32"):
     """Converts a class vector (integers) to binary class matrix.
 
     E.g. for use with `categorical_crossentropy`.
@@ -45,16 +47,16 @@ def to_categorical(y, num_classes=None, dtype="float32"):
     >>> print(np.around(loss, 5))
     [0. 0. 0. 0.]
     """
-    y = np.array(y, dtype="int")
-    input_shape = y.shape
+    y_class_values = np.array(y_class_values, dtype="int")
+    input_shape = y_class_values.shape
     if input_shape and input_shape[-1] == 1 and len(input_shape) > 1:
         input_shape = tuple(input_shape[:-1])
-    y = y.ravel()
+    y_class_values = y_class_values.ravel()
     if not num_classes:
-        num_classes = np.max(y) + 1
-    n = y.shape[0]
-    categorical = np.zeros((n, num_classes), dtype=dtype)
-    categorical[np.arange(n), y] = 1
+        num_classes = np.max(y_class_values) + 1
+    num_columns_y = y_class_values.shape[0]
+    categorical = np.zeros((num_columns_y, num_classes), dtype=dtype)
+    categorical[np.arange(num_columns_y), y_class_values] = 1
     output_shape = input_shape + (num_classes,)
     categorical = np.reshape(categorical, output_shape)
     return categorical
