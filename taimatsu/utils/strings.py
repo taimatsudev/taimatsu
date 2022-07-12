@@ -1,3 +1,5 @@
+"""String utilities"""
+
 def str_to_bool(string_in: str):
     """convert a string to boolean
 
@@ -12,7 +14,6 @@ def str_to_bool(string_in: str):
     """
     if string_in.lower() == "true":
         return True
-    elif string_in.lower() == "false":
+    if string_in.lower() == "false":
         return False
-    else:
-        raise ValueError(f"Cannot convert {string_in} to a bool")
+    raise ValueError(f"Cannot convert {string_in} to a bool")

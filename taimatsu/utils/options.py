@@ -1,9 +1,10 @@
+"""Module with helper functions to pass options to Taimatsu"""
 import os
+import torch
 from torch import cuda
-from torch import device as torch_device
 from taimatsu.utils.strings import str_to_bool
 
-DEVICE = torch_device("cuda:0" if cuda.is_available() else "cpu")
+DEVICE = torch.device("cuda:0" if cuda.is_available() else "cpu")
 
 
 def get_device():
