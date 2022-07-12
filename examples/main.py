@@ -20,7 +20,7 @@ sys.path.append(os.path.join(dirname, ".."))
 
 
 # pylint: disable=C0411, E0401, C0413
-import taimatsu.nn
+import adaswarm.nn
 from taimatsu.utils import progress_bar, Metrics
 from taimatsu.data import DataLoaderFetcher
 
@@ -86,12 +86,12 @@ def run():
         #TODO: Use a candidate loss function on a case by case basis
         if dataset_name() in ["Iris"]:
             if is_adaswarm():
-                approx_criterion = taimatsu.nn.BCELoss()
+                approx_criterion = adaswarm.nn.BCELoss()
             else:
                 approx_criterion = torch.nn.BCELoss()
         else:
             if is_adaswarm():
-                approx_criterion = taimatsu.nn.CrossEntropyLoss()
+                approx_criterion = adaswarm.nn.CrossEntropyLoss()
             else:
                 approx_criterion = torch.nn.CrossEntropyLoss()
 
