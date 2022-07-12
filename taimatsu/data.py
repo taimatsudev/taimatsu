@@ -8,10 +8,10 @@ from torchvision import transforms
 from torch import cuda
 from torch.backends import cudnn
 
-from adaswarm.utils import to_categorical
-from adaswarm.utils.options import get_device
-from adaswarm.resnet import ResNet18
-from adaswarm.model import Model
+from taimatsu.utils import to_categorical
+from taimatsu.utils.options import get_device
+from taimatsu.resnet import ResNet18
+from taimatsu.model import Model
 
 from sklearn import datasets as skl_datasets
 from torchvision import datasets as tv_datasets

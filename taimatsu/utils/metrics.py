@@ -5,10 +5,10 @@
 import os
 import time
 import datetime
+from platform import platform
 import pandas as pd
 import numpy as np
-from adaswarm.utils.options import get_device
-from platform import platform
+from taimatsu.utils.options import get_device
 
 
 class Metrics:
@@ -18,7 +18,7 @@ class Metrics:
     * Accuracy
     """
 
-    class Stats:
+    class Stats: # pylint: disable=too-many-instance-attributes
         """
         Class to hold the value of accuracy
         """
@@ -58,7 +58,7 @@ class Metrics:
             Compare and store the best training loss
             value
             """
-            if (self.best_training_loss == None) or (value < self.best_training_loss):
+            if (self.best_training_loss is None) or (value < self.best_training_loss):
                 self.best_training_loss = value
 
         def update_test_loss(self, value):
@@ -66,28 +66,35 @@ class Metrics:
             Compare and store the best test loss
             value
             """
-            if (self.best_test_loss == None) or (value < self.best_test_loss):
+            if (self.best_test_loss is None) or (value < self.best_test_loss):
                 self.best_test_loss = value
 
         def current_epoch(self, value):
+            """Get the current epoch"""
             self.number_of_epochs = value
 
         def add_epoch_train_loss(self, value):
+            """Add the epoch training loss to a list of losses"""
             self.epoch_train_losses.append(value)
 
         def add_epoch_train_accuracy(self, value):
+            """Add the epoch training accuracy to a list of accuracies"""
             self.epoch_train_accuracies.append(value)
 
         def add_epoch_test_loss(self, value):
+            """Add the epoch test loss to a list of losses"""
             self.epoch_test_losses.append(value)
 
         def add_epoch_test_accuracy(self, value):
+            """Add the epoch test accuracy to a list of accuracies"""
             self.epoch_test_accuracies.append(value)
 
         def current_epoch_loss(self):
+            """Get the current epoch loss"""
             return np.round(self.epoch_train_losses[-1:], 3)
 
         def run_data(self):
+            """Get the metrics for this run"""
             return (
                 self.epoch_train_losses,
                 self.epoch_train_accuracies,
@@ -127,11 +134,11 @@ class Metrics:
                     100.0 * self.stats.best_training_accuracy, 2
                 ),
                 "Training Loss": self.stats.best_training_loss
-                if self.stats.best_training_loss != None
+                if self.stats.best_training_loss is not None
                 else "Not set",
                 "Test Acc %": np.round(100.0 * self.stats.best_test_accuracy, 2),
                 "Test Loss": self.stats.best_test_loss
-                if self.stats.best_test_loss != None
+                if self.stats.best_test_loss is not None
                 else "Not set",
             },
             index=[0],

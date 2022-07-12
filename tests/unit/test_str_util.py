@@ -1,4 +1,4 @@
-from adaswarm.utils.strings import str_to_bool
+from taimatsu.utils.strings import str_to_bool
 import unittest
 
 

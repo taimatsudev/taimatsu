@@ -17,7 +17,7 @@ def compare():
 
     import examples.main as main
 
-    import adaswarm.utils.options as options
+    import taimatsu.utils.options as options
 
     os.environ["USE_ADASWARM"] = "False"
 

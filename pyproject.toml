@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "adaswarm"
-version = "0.1.0"
+name = "taimatsu"
+version = "0.0.1"
 description = ""
 authors = ["swhustla <fdkelly@gmail.com>"]
 

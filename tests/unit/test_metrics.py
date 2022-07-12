@@ -1,10 +1,10 @@
 import os
 import unittest
-from adaswarm.utils import Metrics
+from taimatsu.utils import Metrics
 from unittest.mock import patch
 import pandas as pd
 from freezegun import freeze_time
-from adaswarm.utils.options import get_device
+from taimatsu.utils.options import get_device
 from platform import platform
 
 CSV_OUTPUT_FILENAME = "./tests/unit/output/summary.csv"

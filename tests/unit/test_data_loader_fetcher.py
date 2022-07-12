@@ -7,11 +7,11 @@ from numpy.testing import assert_array_almost_equal
 from torch.utils.data import DataLoader
 from torch.utils.data.dataset import Dataset
 from torch import tensor
-from adaswarm.model import Model
+from taimatsu.model import Model
 from sklearn import datasets
 
-from adaswarm.data import DataLoaderFetcher, TabularDataSet
-from adaswarm.resnet import ResNet
+from taimatsu.data import DataLoaderFetcher, TabularDataSet
+from taimatsu.resnet import ResNet
 
 
 class CustomDataset(Dataset):
